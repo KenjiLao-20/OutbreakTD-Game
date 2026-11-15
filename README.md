@@ -1,4 +1,4 @@
-<h1 align="center">🛡️ Outbreak TD/h1>
+<h1 align="center">🛡️ Outbreak TD</h1>
 
 <p align="center">
   <b>A strategic 2D Tower Defense game built with Godot 4.</b>
