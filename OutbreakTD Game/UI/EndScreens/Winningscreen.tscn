@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://sfi1x4fk0i3s"]
+
+[ext_resource type="Script" uid="uid://cxahv7lru53in" path="res://UI/EndScreens/winningscreen.gd" id="1_uhmxv"]
+[ext_resource type="Texture2D" uid="uid://d4i6m015p381p" path="res://UI/EndScreens/Winning Screen-1.png.png" id="2_uhmxv"]
+[ext_resource type="Texture2D" uid="uid://dtge3jwodbmyn" path="res://UI/EndScreens/NewGameButton-1.png.png" id="3_d01te"]
+[ext_resource type="Texture2D" uid="uid://fv10the7b8k6" path="res://UI/EndScreens/ExitGameButon-2.png.png" id="4_yxako"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnbbs"]
+atlas = ExtResource("3_d01te")
+region = Rect2(46.31038, 35.86112, 76.05716, 21.029633)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbrky"]
+atlas = ExtResource("4_yxako")
+region = Rect2(67.47193, 38.01448, 34.88688, 17.698494)
+
+[node name="LoosingScreen" type="Control" unique_id=780244733 node_paths=PackedStringArray("retry_button", "exit_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uhmxv")
+retry_button = NodePath("NewGame_Retry")
+exit_button = NodePath("Exit")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2109589312]
+custom_minimum_size = Vector2(300, 110)
+layout_mode = 0
+offset_left = 94.0
+offset_top = 31.0
+offset_right = 394.0
+offset_bottom = 141.0
+texture = ExtResource("2_uhmxv")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="NewGame_Retry" type="TextureButton" parent="." unique_id=1793511925]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 0
+offset_left = 199.0
+offset_top = 133.0
+offset_right = 289.0
+offset_bottom = 163.0
+texture_normal = SubResource("AtlasTexture_tnbbs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Exit" type="TextureButton" parent="." unique_id=593301615]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 0
+offset_left = 191.0
+offset_top = 163.0
+offset_right = 294.0
+offset_bottom = 199.0
+texture_normal = SubResource("AtlasTexture_wbrky")
+ignore_texture_size = true
+stretch_mode = 5

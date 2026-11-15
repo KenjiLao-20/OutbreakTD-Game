@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dmghmbs1r2mql"]
+
+[ext_resource type="Script" uid="uid://cjgwhlfoivrip" path="res://ui.gd" id="1_b3bc3"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1512202181]
+script = ExtResource("1_b3bc3")
+
+[node name="WaveLabel" type="Label" parent="." unique_id=1506880391]
+offset_left = 8.0
+offset_top = 240.0
+offset_right = 64.0
+offset_bottom = 263.0
+text = "Wave 1"

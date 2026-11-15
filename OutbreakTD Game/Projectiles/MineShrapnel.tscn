@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cua1jr6xgu8b6"]
+
+[ext_resource type="Script" uid="uid://dibsjfr5baqyf" path="res://Projectiles/mine_shrapnel.gd" id="1_kfamr"]
+[ext_resource type="Texture2D" uid="uid://dsngm6gplqcct" path="res://Projectiles/PlantTowerProjectile.png" id="2_eskuj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(4, 8)
+
+[node name="PlantProjectile" type="Area2D" unique_id=1439492765]
+script = ExtResource("1_kfamr")
+speed = 200.0
+damage = 15
+max_hits = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2066904075]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_eskuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361432439]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_wvhbo")

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cme1qvauy517"]
+
+[ext_resource type="Script" uid="uid://ckpdmubrxrhyn" path="res://Towers/sentry_gun.gd" id="1_axme6"]
+[ext_resource type="Texture2D" uid="uid://tnir7rnya0g3" path="res://OtherPngs/SentryGunBase[Cadapan] (1).png" id="1_yixru"]
+[ext_resource type="Texture2D" uid="uid://btyj7ivdv0lf0" path="res://OtherPngs/SentryGunHeadIdle[Cadapan].png" id="2_axme6"]
+[ext_resource type="Texture2D" uid="uid://ceay51l1pofgw" path="res://OtherPngs/SentryGunHeadAttack[Cadapan].png" id="3_cdag3"]
+[ext_resource type="AudioStream" uid="uid://b7rrjcrv8sxtw" path="res://Audios/detectsound.mp3" id="4_bq6dn"]
+[ext_resource type="AudioStream" uid="uid://bkvklydyphma2" path="res://Audios/shootsound.mp3" id="5_xfpfv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2xch"]
+atlas = ExtResource("3_cdag3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5lvf"]
+atlas = ExtResource("3_cdag3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvhbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_axme6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2xch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5lvf")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvhbo"]
+radius = 35.22783
+
+[node name="SentryGun" type="StaticBody2D" unique_id=860847847]
+script = ExtResource("1_axme6")
+attack_damage = 3
+rotation_speed = 14.0
+enable_idle_scan = true
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=978207534]
+texture = ExtResource("1_yixru")
+
+[node name="TurretHead" type="Node2D" parent="." unique_id=2105677552]
+
+[node name="HeadSprite" type="AnimatedSprite2D" parent="TurretHead" unique_id=1951479291]
+position = Vector2(2, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_wvhbo")
+animation = &"shoot"
+frame = 1
+frame_progress = 1.0
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=426913356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" unique_id=953132139]
+shape = SubResource("CircleShape2D_wvhbo")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1234386102]
+
+[node name="DetectSound" type="AudioStreamPlayer2D" parent="." unique_id=837964617]
+stream = ExtResource("4_bq6dn")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=839237147]
+stream = ExtResource("5_xfpfv")

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cgsk3e36xt731"]
+
+[ext_resource type="Script" uid="uid://ds44teg2dpudl" path="res://Scenes/turretbodyithink.gd" id="1_dqge7"]
+[ext_resource type="Texture2D" uid="uid://tnir7rnya0g3" path="res://OtherPngs/SentryGunBase[Cadapan] (1).png" id="2_0471s"]
+[ext_resource type="Texture2D" uid="uid://btyj7ivdv0lf0" path="res://OtherPngs/SentryGunHeadIdle[Cadapan].png" id="3_0471s"]
+[ext_resource type="Texture2D" uid="uid://ceay51l1pofgw" path="res://OtherPngs/SentryGunHeadAttack[Cadapan].png" id="4_huv01"]
+[ext_resource type="AudioStream" uid="uid://b7rrjcrv8sxtw" path="res://Audios/detectsound.mp3" id="5_0471s"]
+[ext_resource type="AudioStream" uid="uid://bkvklydyphma2" path="res://Audios/shootsound.mp3" id="6_huv01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1yrl"]
+atlas = ExtResource("4_huv01")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12c6x"]
+atlas = ExtResource("4_huv01")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvhbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0471s")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1yrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12c6x")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvhbo"]
+radius = 45.0
+
+[node name="Tower" type="StaticBody2D" unique_id=973624657]
+script = ExtResource("1_dqge7")
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1367388767]
+texture = ExtResource("2_0471s")
+
+[node name="TurretHead" type="Node2D" parent="." unique_id=501539634]
+
+[node name="HeadSprite" type="AnimatedSprite2D" parent="TurretHead" unique_id=760620973]
+position = Vector2(2, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_wvhbo")
+animation = &"idle"
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1187104178]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" unique_id=726580230]
+shape = SubResource("CircleShape2D_wvhbo")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1456387031]
+autostart = true
+
+[node name="DetectSound" type="AudioStreamPlayer2D" parent="." unique_id=280152587]
+stream = ExtResource("5_0471s")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1659213444]
+stream = ExtResource("6_huv01")

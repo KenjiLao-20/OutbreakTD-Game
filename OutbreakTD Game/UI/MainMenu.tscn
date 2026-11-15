@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dri0nt5fj78ba"]
+
+[ext_resource type="Texture2D" uid="uid://cqcakomo0add" path="res://UI/CleanBackgroundForTowerdefense[Belen].png" id="1_t6syg"]
+[ext_resource type="Script" uid="uid://b7g68bkpqtq60" path="res://UI/main_menu.gd" id="1_y6s48"]
+[ext_resource type="Texture2D" uid="uid://d3eledewwnkja" path="res://UI/GameTitle-3.png.png" id="2_y6s48"]
+[ext_resource type="Texture2D" uid="uid://dtge3jwodbmyn" path="res://UI/EndScreens/NewGameButton-1.png.png" id="3_otjfi"]
+[ext_resource type="Texture2D" uid="uid://fv10the7b8k6" path="res://UI/EndScreens/ExitGameButon-2.png.png" id="4_obtq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abi3o"]
+atlas = ExtResource("2_y6s48")
+region = Rect2(0, 32.402626, 175, 30.492966)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibjym"]
+atlas = ExtResource("3_otjfi")
+region = Rect2(46.37079, 35.635113, 75.43356, 20.507988)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrdhs"]
+atlas = ExtResource("4_obtq6")
+region = Rect2(68.30094, 39.44705, 33.725487, 14.495068)
+
+[node name="MainMenu" type="Control" unique_id=1340786189 node_paths=PackedStringArray("play_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6s48")
+play_button = NodePath("NewGame")
+quit_button = NodePath("ExitGame")
+game_scene_path = "uid://dqn20ewbuhfoc"
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=134316538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t6syg")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=1146815050]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 39.0
+offset_right = 452.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_abi3o")
+stretch_mode = 5
+
+[node name="NewGame" type="TextureButton" parent="." unique_id=1579416598]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 132.0
+offset_right = 365.0
+offset_bottom = 207.0
+texture_normal = SubResource("AtlasTexture_ibjym")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitGame" type="TextureButton" parent="." unique_id=1948648617]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 216.0
+offset_right = 280.0
+offset_bottom = 246.0
+texture_normal = SubResource("AtlasTexture_jrdhs")
+ignore_texture_size = true
+stretch_mode = 5

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://d1ics0ipfdj78"]
+
+[ext_resource type="Script" uid="uid://bdbsoqefkgufh" path="res://Towers/laser_tower.gd" id="1_d5dc2"]
+[ext_resource type="Texture2D" uid="uid://budddfmgvtjvp" path="res://OtherPngs/BelenGreenIdle.png" id="1_xyo4q"]
+[ext_resource type="Texture2D" uid="uid://bqgfxptnn84kn" path="res://OtherPngs/BelenGreenPlacement.png" id="2_d5dc2"]
+[ext_resource type="AudioStream" uid="uid://dl67jed3ihnm5" path="res://Audios/LaserChargeWindup.mp3" id="4_j23qj"]
+[ext_resource type="AudioStream" uid="uid://ysby5j2pucis" path="res://Audios/LaserFire.mp3" id="5_w5wt7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcb7b"]
+atlas = ExtResource("1_xyo4q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j23qj"]
+atlas = ExtResource("1_xyo4q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5wt7"]
+atlas = ExtResource("1_xyo4q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyolu"]
+atlas = ExtResource("1_xyo4q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5uba"]
+atlas = ExtResource("1_xyo4q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj7js"]
+atlas = ExtResource("2_d5dc2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo5tx"]
+atlas = ExtResource("2_d5dc2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynrla"]
+atlas = ExtResource("2_d5dc2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_degft"]
+atlas = ExtResource("2_d5dc2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sppx5"]
+atlas = ExtResource("2_d5dc2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvhbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcb7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j23qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5wt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyolu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5uba")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj7js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo5tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynrla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_degft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sppx5")
+}],
+"loop": 1,
+"name": &"placement",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5dc2"]
+radius = 50.01
+
+[node name="LaserTower" type="StaticBody2D" unique_id=635914582]
+script = ExtResource("1_d5dc2")
+damage_per_second = 20.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1300011113]
+position = Vector2(0.2, -0.7)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wvhbo")
+animation = &"placement"
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1479741689]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" unique_id=950610959]
+shape = SubResource("CircleShape2D_d5dc2")
+
+[node name="BeamGlow" type="Line2D" parent="." unique_id=791824940]
+width = 2.5
+default_color = Color(0.6509804, 1, 0.6509804, 1)
+begin_cap_mode = 2
+
+[node name="BeamCore" type="Line2D" parent="." unique_id=540699551]
+width = 1.0
+default_color = Color(0.9254902, 1, 0.6509804, 1)
+
+[node name="WindupSound" type="AudioStreamPlayer2D" parent="." unique_id=1599409790]
+stream = ExtResource("4_j23qj")
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="." unique_id=758400287]
+stream = ExtResource("5_w5wt7")
