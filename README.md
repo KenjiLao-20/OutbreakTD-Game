@@ -5,7 +5,7 @@
 </p>
 
 <div align="center">
-  <img src="image/tower_defense.png" alt="Tower Defense Game Screenshot" width="800"/>
+  <img src="image/outbreak.png" alt="Tower Defense Game Screenshot" width="800"/>
   <br><br>
   <a href="#"><img src="https://img.shields.io/badge/Engine-Godot_4-blue?style=for-the-badge&logo=godot-engine" alt="Godot 4"></a>
   <a href="#"><img src="https://img.shields.io/badge/Language-GDScript-green?style=for-the-badge" alt="GDScript"></a>
